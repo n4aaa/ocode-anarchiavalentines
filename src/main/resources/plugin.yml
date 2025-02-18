@@ -1,7 +1,7 @@
-name: ocode-Template
+name: oCode-AnarchiaValentines
 version: '${project.version}'
-main: pl.ocode.template.TemplatePlugin
-api-version: '1.16'
+main: pl.ocode.anarchiavalentines.AnarchiaValentinesPlugin
+api-version: '1.18'
 authors: [author]
-description: ocode-Template plugin created by oasiscode.pl
+description: oCode-AnarchiaValentines plugin created by oasiscode.pl
 website: https://oasiscode.pl
