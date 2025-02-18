@@ -13,7 +13,7 @@
 
     <description>oCode-AnarchiaValentines plugin created by oasiscode.pl</description>
     <properties>
-    <java.version>11</java.version>
+    <java.version>16</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
     <url>https://oasiscode.pl</url>
@@ -32,19 +32,48 @@
               </compilerArgs>
           </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-        <version>3.2.4</version>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>shade</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <version>3.6.0</version>
+            <configuration>
+                <relocations>
+                    <relocation>
+                        <pattern>com.cryptomorin.xseries</pattern>
+                        <shadedPattern>pl.ocode.anarchiavalentines.libs.com.cryptomorin.xseries</shadedPattern>
+                    </relocation>
+                    <relocation>
+                        <pattern>eu.okaeri</pattern>
+                        <shadedPattern>pl.ocode.anarchiavalentines.libs.eu.okaeri</shadedPattern>
+                    </relocation>
+                </relocations>
+            </configuration>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>shade</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>3.3.0</version>
+            <executions>
+                <execution>
+                    <phase>prepare-package</phase>
+                    <goals>
+                        <goal>copy-dependencies</goal>
+                    </goals>
+                    <configuration>
+                        <outputDirectory>${project.build.directory}/libs</outputDirectory>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
     </plugins>
     <resources>
       <resource>
@@ -89,6 +118,7 @@
           <groupId>eu.okaeri</groupId>
           <artifactId>okaeri-platform-bukkit</artifactId>
           <version>0.4.40</version>
+          <scope>compile</scope>
       </dependency>
 
       <!-- platform - tasker -->
@@ -96,6 +126,7 @@
           <groupId>eu.okaeri</groupId>
           <artifactId>okaeri-tasker-bukkit</artifactId>
           <version>2.1.0-beta.3</version>
+          <scope>compile</scope>
       </dependency>
 
       <!-- platform - persistence -->
@@ -103,16 +134,19 @@
           <groupId>eu.okaeri</groupId>
           <artifactId>okaeri-configs-json-simple</artifactId>
           <version>5.0.6</version>
+          <scope>compile</scope>
       </dependency>
       <dependency>
           <groupId>eu.okaeri</groupId>
           <artifactId>okaeri-persistence-jdbc</artifactId>
           <version>3.0.1-beta.2</version>
+          <scope>compile</scope>
       </dependency>
       <dependency>
           <groupId>eu.okaeri</groupId>
           <artifactId>okaeri-persistence-mongo</artifactId>
           <version>3.0.1-beta.2</version>
+          <scope>compile</scope>
       </dependency>
 
       <!-- xseries -->
@@ -120,6 +154,7 @@
           <groupId>com.github.cryptomorin</groupId>
           <artifactId>XSeries</artifactId>
           <version>10.0.0</version>
+          <scope>compile</scope>
       </dependency>
 
       <!-- protocollib -->
