@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.inventory.ItemStack;
 import pl.ocode.anarchiavalentines.config.customitem.CustomItem;
-import pl.ocode.anarchiavalentines.config.skin.Skin;
 
 @Getter
 @Setter
@@ -17,7 +16,7 @@ public class Costume extends OkaeriConfig {
     private CustomItem presenter;
 
     private int color;
-    private Skin helmetSkin;
+    private String value;
 
     private ItemStack helmet;
     private ItemStack chestplate;

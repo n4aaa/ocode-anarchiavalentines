@@ -1,6 +1,7 @@
 package pl.ocode.anarchiavalentines.util;
 
-import com.cryptomorin.xseries.SkullUtils;
+import com.mojang.authlib.GameProfile;
+import com.mojang.authlib.properties.Property;
 import lombok.NonNull;
 import org.bukkit.Color;
 import org.bukkit.Material;
@@ -10,17 +11,14 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
+import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
-import pl.ocode.anarchiavalentines.config.skin.Skin;
 import pl.ocode.anarchiavalentines.util.builder.ListBuilder;
 import pl.ocode.anarchiavalentines.util.string.ChatUtil;
-import org.bukkit.inventory.meta.SkullMeta;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.lang.reflect.Field;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -307,14 +305,25 @@ public class ItemBuilder {
         return this;
     }
 
-    public ItemBuilder setSkin(Skin skin) {
-        ItemMeta itemMeta = this.itemStack.getItemMeta();
+    public ItemBuilder setSkin(String texture) {
+        final ItemMeta itemMeta = this.itemStack.getItemMeta();
         assert itemMeta != null;
 
-        SkullMeta skullMeta = (SkullMeta) this.itemStack.getItemMeta();
+        final SkullMeta skullMeta = (SkullMeta) this.itemStack.getItemMeta();
         assert skullMeta != null;
 
-        SkullUtils.setSkullBase64(skullMeta, skin.getValue(), skin.getSignature());
+        final GameProfile profile = new GameProfile(UUID.randomUUID(), "ocode-head");
+        profile.getProperties().put("textures", new Property("textures", texture));
+
+        try {
+            Field profileField = skullMeta.getClass().getDeclaredField("profile");
+
+            profileField.setAccessible(true);
+            profileField.set(skullMeta, profile);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
         this.itemStack.setItemMeta(skullMeta);
 
         return this;

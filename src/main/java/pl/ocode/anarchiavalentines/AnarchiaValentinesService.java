@@ -49,7 +49,7 @@ public class AnarchiaValentinesService {
         Costume costume = this.pluginConfig.valentineCostume;
 
         helmet = ItemBuilder.of(costume.getHelmet())
-                .setSkin(costume.getHelmetSkin())
+                .setSkin(costume.getValue())
                 .toItemStack();
         chestplate = ItemBuilder.of(costume.getChestplate())
                 .setColor(Color.fromBGR(costume.getColor()))

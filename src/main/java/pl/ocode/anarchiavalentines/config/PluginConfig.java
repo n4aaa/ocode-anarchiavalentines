@@ -1,6 +1,5 @@
 package pl.ocode.anarchiavalentines.config;
 
-import com.cryptomorin.xseries.XMaterial;
 import eu.okaeri.configs.OkaeriConfig;
 import eu.okaeri.configs.annotation.Comment;
 import eu.okaeri.configs.annotation.Header;
@@ -11,7 +10,6 @@ import pl.ocode.anarchiavalentines.config.customitem.CustomItem;
 import pl.ocode.anarchiavalentines.config.menu.MenuBuilder;
 import pl.ocode.anarchiavalentines.config.menu.MenuItem;
 import pl.ocode.anarchiavalentines.config.product.Product;
-import pl.ocode.anarchiavalentines.config.skin.Skin;
 import pl.ocode.anarchiavalentines.config.storage.StorageConfig;
 import pl.ocode.anarchiavalentines.config.costume.Costume;
 import pl.ocode.anarchiavalentines.config.upgrade.Upgrade;
@@ -30,7 +28,7 @@ public class PluginConfig extends OkaeriConfig {
 
     @Comment
     @Comment("Skonfiguruj slot pod pktórym znajduje się przycisk zamkniecia:")
-    public CustomItem valentineHearth = new CustomItem(ItemBuilder.of(XMaterial.PINK_DYE.parseItem())
+    public CustomItem valentineHearth = new CustomItem(ItemBuilder.of(Material.PINK_DYE)
             .setName("&d&lWalentynkowe serce")
             .setLore(" &8» &7Jest to przedmioty z:",
                     "&8» &feventu walentynkowego (2025)",
@@ -56,7 +54,7 @@ public class PluginConfig extends OkaeriConfig {
             new ListBuilder<MenuItem>()
                     .add(new MenuItem(
                             40,
-                            ItemBuilder.of(XMaterial.BARRIER.parseItem())
+                            ItemBuilder.of(Material.BARRIER)
                                     .setName("&cZamknij!")
                                     .toItemStack(),
                             0
@@ -75,7 +73,7 @@ public class PluginConfig extends OkaeriConfig {
             new ListBuilder<MenuItem>()
                     .add(new MenuItem(
                             4,
-                            ItemBuilder.of(XMaterial.NETHER_STAR.parseItem())
+                            ItemBuilder.of(Material.NETHER_STAR)
                                     .setName("&c&lUWAGA!")
                                     .setLore(" &8» &7Wszystkie &ebonusy &7poniżej działają",
                                             " &8» &7tylko przez czas trwania &dwydarzenia",
@@ -85,7 +83,7 @@ public class PluginConfig extends OkaeriConfig {
                     ))
                     .add(new MenuItem(
                             40,
-                            ItemBuilder.of(XMaterial.BARRIER.parseItem())
+                            ItemBuilder.of(Material.BARRIER)
                                     .setName("&cZamknij!")
                                     .toItemStack(),
                             0
@@ -109,7 +107,7 @@ public class PluginConfig extends OkaeriConfig {
             new Upgrade(
                     new MenuItem(
                             20,
-                            ItemBuilder.of(XMaterial.IRON_CHESTPLATE.parseItem())
+                            ItemBuilder.of(Material.IRON_CHESTPLATE)
                                     .setName("&a&l+15% do obrony")
                                     .setLore(" &8» &7Otrzymujesz &f15% &7więcej obrony",
                                             " &8» &7od ataków!")
@@ -122,7 +120,7 @@ public class PluginConfig extends OkaeriConfig {
             new Upgrade(
                     new MenuItem(
                             21,
-                            ItemBuilder.of(XMaterial.DIAMOND_SWORD.parseItem())
+                            ItemBuilder.of(Material.DIAMOND_SWORD)
                                     .setName("&c&l+15% do obrażeń")
                                     .setLore(" &8» &7Zadajesz &f15% &7do ataków")
                                     .toItemStack(),
@@ -134,7 +132,7 @@ public class PluginConfig extends OkaeriConfig {
             new Upgrade(
                     new MenuItem(
                             22,
-                            ItemBuilder.of(XMaterial.FEATHER.parseItem())
+                            ItemBuilder.of(Material.FEATHER)
                                     .setName("&b&lPodwójny skok co 10 sekund")
                                     .setLore(" &8» &7Możesz skakać podwójnym skokiem",
                                             " &8» &7co 10 sekund!")
@@ -147,7 +145,7 @@ public class PluginConfig extends OkaeriConfig {
             new Upgrade(
                     new MenuItem(
                             23,
-                            ItemBuilder.of(XMaterial.DRIPSTONE_BLOCK.parseItem())
+                            ItemBuilder.of(Material.DRIPSTONE_BLOCK)
                                     .setName("&6&l+15% odporności od dripstone")
                                     .setLore(" &8» &7Otrzymujesz &f50% &7mniej obrażen",
                                             " &8» &7od dripstone!")
@@ -160,7 +158,7 @@ public class PluginConfig extends OkaeriConfig {
             new Upgrade(
                     new MenuItem(
                             24,
-                            ItemBuilder.of(XMaterial.TOTEM_OF_UNDYING.parseItem())
+                            ItemBuilder.of(Material.TOTEM_OF_UNDYING)
                                     .setName("&d&l+50% zachowanych itemów po śmierci")
                                     .setLore(" &8» &7Po śmierci zachowujesz &f50% &7itemów",
                                             " &8» &7z ekwipunku tylko i wyłącznie na pierwsza",
@@ -181,21 +179,21 @@ public class PluginConfig extends OkaeriConfig {
             new ListBuilder<MenuItem>()
                     .add(new MenuItem(
                             12,
-                            ItemBuilder.of(XMaterial.RED_DYE.parseItem())
+                            ItemBuilder.of(Material.RED_DYE)
                                     .setName("&cZdejmij kostium")
                                     .toItemStack(),
                             0
                     ))
                     .add(new MenuItem(
                             13,
-                            ItemBuilder.of(XMaterial.CHAINMAIL_CHESTPLATE.parseItem())
+                            ItemBuilder.of(Material.CHAINMAIL_CHESTPLATE)
                                     .setName("&cBrak kostiumu")
                                     .toItemStack(),
                             0
                     ))
                     .add(new MenuItem(
                             14,
-                            ItemBuilder.of(XMaterial.LIME_DYE.parseItem())
+                            ItemBuilder.of(Material.LIME_DYE)
                                     .setName("&aPrzedłuż kostium")
                                     .setLore(" &8» &7Aby przedłużyć kostium musisz",
                                             " &8» &7posiadać &fzwój przedłużenia&7, który",
@@ -212,7 +210,7 @@ public class PluginConfig extends OkaeriConfig {
                     ))
                     .add(new MenuItem(
                             22,
-                            ItemBuilder.of(XMaterial.LIME_STAINED_GLASS_PANE.parseItem())
+                            ItemBuilder.of(Material.LIME_STAINED_GLASS_PANE)
                                     .setName("&7Kostium wygaśnie: &f{date}")
                                     .setLore(" &8» &7Aby przedłużyć czas żywotności",
                                             " &8» &7kostiumu `{costume}&7` użyj przycisku",
@@ -222,14 +220,14 @@ public class PluginConfig extends OkaeriConfig {
                     ))
                     .add(new MenuItem(
                             40,
-                            ItemBuilder.of(XMaterial.BARRIER.parseItem())
+                            ItemBuilder.of(Material.BARRIER)
                                     .setName("&cZamknij!")
                                     .toItemStack(),
                             0
                     ))
                     .add(new MenuItem(
                             44,
-                            ItemBuilder.of(XMaterial.ARMOR_STAND.parseItem())
+                            ItemBuilder.of(Material.ARMOR_STAND)
                                     .setName("&6Kostiumy")
                                     .setLore(" &8» &7W tym miejscu odnajdziesz pełną listę",
                                             " &8» &7wszystkich dostepnych &ekostiumów",
@@ -258,14 +256,14 @@ public class PluginConfig extends OkaeriConfig {
             new ListBuilder<MenuItem>()
                     .add(new MenuItem(
                             13,
-                            ItemBuilder.of(XMaterial.CHAINMAIL_CHESTPLATE.parseItem())
+                            ItemBuilder.of(Material.CHAINMAIL_CHESTPLATE)
                                     .setName("&cBrak kostiumu")
                                     .toItemStack(),
                             0
                     ))
                     .add(new MenuItem(
                             22,
-                            ItemBuilder.of(XMaterial.RED_STAINED_GLASS_PANE.parseItem())
+                            ItemBuilder.of(Material.RED_STAINED_GLASS_PANE)
                                     .setName("&cKostiumy możesz zdobyć poprzez zakup")
                                     .setLore("&cspecjalnych pakietów okazyjncyh na naszej",
                                             "&cstronie &4www.ocode.pl")
@@ -274,14 +272,14 @@ public class PluginConfig extends OkaeriConfig {
                     ))
                     .add(new MenuItem(
                             40,
-                            ItemBuilder.of(XMaterial.BARRIER.parseItem())
+                            ItemBuilder.of(Material.BARRIER)
                                     .setName("&cZamknij!")
                                     .toItemStack(),
                             0
                     ))
                     .add(new MenuItem(
                             44,
-                            ItemBuilder.of(XMaterial.ARMOR_STAND.parseItem())
+                            ItemBuilder.of(Material.ARMOR_STAND)
                                     .setName("&6Kostiumy")
                                     .setLore(" &8» &7W tym miejscu odnajdziesz pełną listę",
                                             " &8» &7wszystkich dostepnych &ekostiumów",
@@ -307,7 +305,7 @@ public class PluginConfig extends OkaeriConfig {
             new ListBuilder<MenuItem>()
                     .add(new MenuItem(
                             49,
-                            ItemBuilder.of(XMaterial.ARROW.parseItem())
+                            ItemBuilder.of(Material.ARROW)
                                     .setName("&cPowrót")
                                     .toItemStack(),
                             0
@@ -333,7 +331,7 @@ public class PluginConfig extends OkaeriConfig {
     public Costume valentineCostume = new Costume(
             "walentynkowy",
             22,
-            new CustomItem(ItemBuilder.of(XMaterial.LEATHER_CHESTPLATE.parseItem())
+            new CustomItem(ItemBuilder.of(Material.LEATHER_CHESTPLATE)
                     .setName("&7Kostium &dwalentynkowy")
                     .setLore("&8Unikatowa wersja!",
                             "&7Został on wydany jako pierwszy w historii serwerów",
@@ -356,17 +354,16 @@ public class PluginConfig extends OkaeriConfig {
                     .toItemStack(),
                     0),
             14378980,
-            new Skin("ewogICJ0aW1lc3RhbXAiIDogMTczOTU2ODEzODgzNiwKICAicHJvZmlsZUlkIiA6ICJjNjI5MzRjYmE5YTE0NjYwYTk3NTk0YjNlMjQ0ZjhhOSIsCiAgInByb2ZpbGVOYW1lIiA6ICJBQUFycm9iYSIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS80ZGUyMGRkYjJjN2NhZDJhMjc3ZjFhOTE3NTk1MTg5N2Y3NTNjMTE4MDE5YTVmZDQyMDc1OWQ2MzE1ODdlNDNhIiwKICAgICAgIm1ldGFkYXRhIiA6IHsKICAgICAgICAibW9kZWwiIDogInNsaW0iCiAgICAgIH0KICAgIH0KICB9Cn0=",
-                    "XkZjPNt05KXhHUJFXttLzhanfquRKzgyXDCvtsQzBvRbEXIEi5Bd4fKx3eoMPln2cw6pWlpqzFGpqF2i7uGRv08faGl4UtUlAvMf4bfL2iD0pQ/3ahQtKNEuUTm6HWrx9hthQQhsVkcnLryYyUlWwjwtohW4EBUQM695FQ4MrfNeZYvG9AjGXYFIEDxSYc9Tx+TE0q7J6bFpT3Wu/PTcmny0/dV8w73nhmEAJ8vXqLdv5hEdAnMKDjrkXw6RGsp9gCZSSWGoEV5gZuIGfvDEXi4UAcHekX60LEB3UNi98fUB7sWBdeZ6qZnHkpo9LnnCM1o2KL3TF25CzlkXX6tHD3d5kQEI0FlAUH7k9Ykphun+5UYlia9/CYp2OMe2OslzAKCVG//LMVN2scGXi4skOWNdkgEk/7ZJywTwz0M/WqNdIP71vkkCQeEnTiKOPb1goxARtpedO5HrDKnkagU0pe63G0Ohy3Syq6Uv4gv+/Yyn7QkQg316Friyp9D5is/DKSk4m/aYTIxzdkImfOiil+h9o+XkmLkFXTZo3SIVA63JMJJ3GmW1cMLonF8j1uh7B/I62fLXSH5D6XJ+eN8P1FVTUojzT8tSLJTSCZu/DNajweUQaf1ycfAQRN2Fjbx6YEu3OQLUv6gyDQRgKn/CyieLv3exEZP/rkZf6WSfvFo="),
-            ItemBuilder.of(XMaterial.PLAYER_HEAD.parseItem()).toItemStack(),
-            ItemBuilder.of(XMaterial.LEATHER_CHESTPLATE.parseItem()).toItemStack(),
-            ItemBuilder.of(XMaterial.LEATHER_LEGGINGS.parseItem()).toItemStack(),
-            ItemBuilder.of(XMaterial.LEATHER_BOOTS.parseItem()).toItemStack()
+            "ewogICJ0aW1lc3RhbXAiIDogMTczOTU2ODEzODgzNiwKICAicHJvZmlsZUlkIiA6ICJjNjI5MzRjYmE5YTE0NjYwYTk3NTk0YjNlMjQ0ZjhhOSIsCiAgInByb2ZpbGVOYW1lIiA6ICJBQUFycm9iYSIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS80ZGUyMGRkYjJjN2NhZDJhMjc3ZjFhOTE3NTk1MTg5N2Y3NTNjMTE4MDE5YTVmZDQyMDc1OWQ2MzE1ODdlNDNhIiwKICAgICAgIm1ldGFkYXRhIiA6IHsKICAgICAgICAibW9kZWwiIDogInNsaW0iCiAgICAgIH0KICAgIH0KICB9Cn0=",
+            ItemBuilder.of(Material.PLAYER_HEAD).toItemStack(),
+            ItemBuilder.of(Material.LEATHER_CHESTPLATE).toItemStack(),
+            ItemBuilder.of(Material.LEATHER_LEGGINGS).toItemStack(),
+            ItemBuilder.of(Material.LEATHER_BOOTS).toItemStack()
     );
 
     @Comment
     @Comment("Skonfiguruj zwój przedłużenia:")
-    public CustomItem rollItem = new CustomItem(ItemBuilder.of(XMaterial.FLOWER_BANNER_PATTERN.parseItem())
+    public CustomItem rollItem = new CustomItem(ItemBuilder.of(Material.FLOWER_BANNER_PATTERN)
             .setName("&a&lZwój przedłużenia")
             .setLore(" &8» &7Służy do &bprzedłużenia",
                     " &8» &7kostiumu o &b{time}")
@@ -376,7 +373,7 @@ public class PluginConfig extends OkaeriConfig {
     @Comment
     @Comment("Lista przedmiotów:")
     public List<Product> products = Arrays.asList(
-            new Product(new CustomItem(ItemBuilder.of(XMaterial.DIRT.parseItem())
+            new Product(new CustomItem(ItemBuilder.of(Material.TRIPWIRE_HOOK)
                     .setName("&5Epicki klucz")
                     .setLore(" &8» &7Koszt to 400 sztuk:",
                             "  &4● &cWalentynkowe serca",
@@ -387,7 +384,7 @@ public class PluginConfig extends OkaeriConfig {
                             " &8» &eBrak wystarczającej ilosći!")
                     .toItemStack(),
                     0),
-                    new CustomItem(ItemBuilder.of(XMaterial.DIRT.parseItem())
+                    new CustomItem(ItemBuilder.of(Material.TRIPWIRE_HOOK)
                             .setName("&5Epicki klucz")
                             .setLore(" &8» &7Koszt to 400 sztuk:",
                                     "  &2● &aWalentynkowe serca",
@@ -400,7 +397,7 @@ public class PluginConfig extends OkaeriConfig {
                     400,
                     Arrays.asList("say {player} zakupil epicki klucz")
             ),
-            new Product(new CustomItem(ItemBuilder.of(XMaterial.DIRT.parseItem())
+            new Product(new CustomItem(ItemBuilder.of(Material.TRIPWIRE_HOOK)
                     .setName("&4Anarchiczny klucz")
                     .setLore(" &8» &7Koszt to 2,000 sztuk:",
                             "  &4● &cWalentynkowe serca",
@@ -411,7 +408,7 @@ public class PluginConfig extends OkaeriConfig {
                             " &8» &eBrak wystarczającej ilosći!")
                     .toItemStack(),
                     0),
-                    new CustomItem(ItemBuilder.of(XMaterial.DIRT.parseItem())
+                    new CustomItem(ItemBuilder.of(Material.TRIPWIRE_HOOK)
                             .setName("&4Anarchiczny kluczw")
                             .setLore(" &8» &7Koszt to 2,000 sztuk:",
                                     "  &2● &aWalentynkowe serca",

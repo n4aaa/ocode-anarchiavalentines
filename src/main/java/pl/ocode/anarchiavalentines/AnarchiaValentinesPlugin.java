@@ -1,5 +1,6 @@
 package pl.ocode.anarchiavalentines;
 
+import org.bstats.bukkit.Metrics;
 import com.mongodb.ConnectionString;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
@@ -58,6 +59,7 @@ import java.io.File;
 
 public final class AnarchiaValentinesPlugin extends OkaeriBukkitPlugin {
     @Getter private static AnarchiaValentinesPlugin anarchiaValentinesPlugin;
+    private Metrics metrics;
 
     private @Inject AnarchiaValentinesService anarchiaValentinesService;
 
@@ -70,11 +72,15 @@ public final class AnarchiaValentinesPlugin extends OkaeriBukkitPlugin {
     public void onStartup() {
         this.getLogger().info("Enabled!");
 
+        this.metrics = new Metrics(this, 24856);
+
         this.anarchiaValentinesService.buildItems();
     }
 
     @Planned(ExecutionPhase.SHUTDOWN)
     public void onShutdown() {
+        this.metrics.shutdown();
+
         this.getLogger().info("Disabled!");
     }
 
